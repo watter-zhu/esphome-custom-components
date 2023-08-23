@@ -126,7 +126,7 @@ void bl0939w::received_package_(const DataPacket *data) const {
 
 void bl0939w::dump_config() {  // NOLINT(readability-function-cognitive-complexity)
   ESP_LOGCONFIG(TAG, "bl0939w:");
-  LOG_SENSOR("", "Voltage1", this->voltage_sensor_);
+  LOG_SENSOR("", "Voltage1", this->voltage_sensor2_);
   LOG_SENSOR("", "Current 3", this->current_sensor_3_);
   LOG_SENSOR("", "Current 4", this->current_sensor_4_);
   LOG_SENSOR("", "Power 3", this->power_sensor_3_);

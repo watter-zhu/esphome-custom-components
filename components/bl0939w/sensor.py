@@ -35,7 +35,7 @@ CONFIG_SCHEMA = (
     cv.Schema(
         {
             cv.GenerateID(): cv.declare_id(bl0939w),
-            cv.Optional(CONF_VOLTAGE): sensor.sensor_schema(
+            cv.Optional(CONF_VOLTAGE1): sensor.sensor_schema(
                 unit_of_measurement=UNIT_VOLT,
                 accuracy_decimals=1,
                 device_class=DEVICE_CLASS_VOLTAGE,
@@ -95,8 +95,8 @@ async def to_code(config):
     await cg.register_component(var, config)
     await uart.register_uart_device(var, config)
 
-    if voltage_config := config.get(CONF_VOLTAGE):
-        sens = await sensor.new_sensor(voltage_config)
+    if voltage_config := config.get(CONF_VOLTAGE1):
+        sens = await sensor.new_sensor(voltage1_config)
         cg.add(var.set_voltage_sensor(sens))
     if CURRENT_3_config := config.get(CONF_CURRENT_3):
         sens = await sensor.new_sensor(CURRENT_3_config)

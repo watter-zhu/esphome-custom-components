@@ -95,7 +95,7 @@ async def to_code(config):
     await cg.register_component(var, config)
     await uart.register_uart_device(var, config)
 
-    if voltage_config := config.get(CONF_VOLTAGE1):
+    if voltage1_config := config.get(CONF_VOLTAGE1):
         sens = await sensor.new_sensor(voltage1_config)
         cg.add(var.set_voltage_sensor(sens))
     if CURRENT_3_config := config.get(CONF_CURRENT_3):

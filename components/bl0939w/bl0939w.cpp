@@ -2,10 +2,6 @@
 #include "esphome/core/log.h"
 
 namespace esphome {
-namespace bl0939w {#include "bl0939w.h"
-#include "esphome/core/log.h"
-
-namespace esphome {
 namespace bl0939w {
 
 static const char *const TAG = "bl0939w";

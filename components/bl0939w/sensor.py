@@ -97,25 +97,25 @@ async def to_code(config):
 
     if voltage1_config := config.get(CONF_VOLTAGE1):
         sens = await sensor.new_sensor(voltage1_config)
-        cg.add(var.set_voltage_sensor(sens))
+        cg.add(var.set_voltage_sensor2(sens))
     if CURRENT_3_config := config.get(CONF_CURRENT_3):
         sens = await sensor.new_sensor(CURRENT_3_config)
-        cg.add(var.set_current_sensor_1(sens))
+        cg.add(var.set_current_sensor_3(sens))
     if CURRENT_4_config := config.get(CONF_CURRENT_4):
         sens = await sensor.new_sensor(CURRENT_4_config)
-        cg.add(var.set_current_sensor_2(sens))
+        cg.add(var.set_current_sensor_4(sens))
     if active_power_3_config := config.get(CONF_active_power_3):
         sens = await sensor.new_sensor(active_power_3_config)
-        cg.add(var.set_power_sensor_1(sens))
+        cg.add(var.set_power_sensor_3(sens))
     if active_power_4_config := config.get(CONF_active_power_4):
         sens = await sensor.new_sensor(active_power_4_config)
-        cg.add(var.set_power_sensor_2(sens))
+        cg.add(var.set_power_sensor_4(sens))
     if energy_3_config := config.get(CONF_energy_3):
         sens = await sensor.new_sensor(energy_3_config)
-        cg.add(var.set_energy_sensor_1(sens))
+        cg.add(var.set_energy_sensor_3(sens))
     if energy_4_config := config.get(CONF_energy_4):
         sens = await sensor.new_sensor(energy_4_config)
-        cg.add(var.set_energy_sensor_2(sens))
+        cg.add(var.set_energy_sensor_4(sens))
     if ENERGY_TOTAL2_config := config.get(CONF_ENERGY_TOTAL2):
         sens = await sensor.new_sensor(ENERGY_TOTAL2_config)
-        cg.add(var.set_energy_sensor_sum(sens))
+        cg.add(var.set_energy_sensor_sum2(sens))

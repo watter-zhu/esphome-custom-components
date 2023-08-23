@@ -95,29 +95,29 @@ void bl0939w::received_package_(const DataPacket *data) const {
   float b_energy_consumption = (float) cfb_cnt / energy_reference_;
   float total_energy_consumption = a_energy_consumption + b_energy_consumption;
 
-  if (voltage_sensor_ != nullptr) {
-    voltage_sensor_->publish_state(v_rms);
+  if (voltage_sensor_1_ != nullptr) {
+    voltage_sensor_1_->publish_state(v_rms);
   }
-  if (current_sensor_1_ != nullptr) {
-    current_sensor_1_->publish_state(ia_rms);
+  if (current_sensor_3_ != nullptr) {
+    current_sensor_3_->publish_state(ia_rms);
   }
-  if (current_sensor_2_ != nullptr) {
-    current_sensor_2_->publish_state(ib_rms);
+  if (current_sensor_4_ != nullptr) {
+    current_sensor_4_->publish_state(ib_rms);
   }
-  if (power_sensor_1_ != nullptr) {
-    power_sensor_1_->publish_state(a_watt);
+  if (power_sensor_3_ != nullptr) {
+    power_sensor_3_->publish_state(a_watt);
   }
-  if (power_sensor_2_ != nullptr) {
-    power_sensor_2_->publish_state(b_watt);
+  if (power_sensor_4_ != nullptr) {
+    power_sensor_4_->publish_state(b_watt);
   }
-  if (energy_sensor_1_ != nullptr) {
-    energy_sensor_1_->publish_state(a_energy_consumption);
+  if (energy_sensor_3_ != nullptr) {
+    energy_sensor_3_->publish_state(a_energy_consumption);
   }
-  if (energy_sensor_2_ != nullptr) {
-    energy_sensor_2_->publish_state(b_energy_consumption);
+  if (energy_sensor_4_ != nullptr) {
+    energy_sensor_4_->publish_state(b_energy_consumption);
   }
-  if (energy_sensor_sum_ != nullptr) {
-    energy_sensor_sum_->publish_state(total_energy_consumption);
+  if (energy_sensor_sum2_ != nullptr) {
+    energy_sensor_sum2_->publish_state(total_energy_consumption);
   }
 
   ESP_LOGV("bl0939w", "bl0939w: U %fV, I1 %fA, I2 %fA, P1 %fW, P2 %fW, CntA %d, CntB %d, ∫P1 %fkWh, ∫P2 %fkWh", v_rms,
@@ -126,14 +126,14 @@ void bl0939w::received_package_(const DataPacket *data) const {
 
 void bl0939w::dump_config() {  // NOLINT(readability-function-cognitive-complexity)
   ESP_LOGCONFIG(TAG, "bl0939w:");
-  LOG_SENSOR("", "Voltage", this->voltage_sensor_);
-  LOG_SENSOR("", "Current 1", this->current_sensor_1_);
-  LOG_SENSOR("", "Current 2", this->current_sensor_2_);
-  LOG_SENSOR("", "Power 1", this->power_sensor_1_);
-  LOG_SENSOR("", "Power 2", this->power_sensor_2_);
-  LOG_SENSOR("", "Energy 1", this->energy_sensor_1_);
-  LOG_SENSOR("", "Energy 2", this->energy_sensor_2_);
-  LOG_SENSOR("", "Energy sum", this->energy_sensor_sum_);
+  LOG_SENSOR("", "Voltage1", this->voltage_sensor_);
+  LOG_SENSOR("", "Current 3", this->current_sensor_3_);
+  LOG_SENSOR("", "Current 4", this->current_sensor_4_);
+  LOG_SENSOR("", "Power 3", this->power_sensor_3_);
+  LOG_SENSOR("", "Power 4", this->power_sensor_4_);
+  LOG_SENSOR("", "Energy 3", this->energy_sensor_3_);
+  LOG_SENSOR("", "Energy 4", this->energy_sensor_4_);
+  LOG_SENSOR("", "Energy sum2", this->energy_sensor_sum2_);
 }
 
 uint32_t bl0939w::to_uint32_t(ube24_t input) { return input.h << 16 | input.m << 8 | input.l; }

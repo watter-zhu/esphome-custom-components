@@ -82,8 +82,8 @@ class bl0939w : public PollingComponent, public uart::UARTDevice {
   // power in both directions
   sensor::Sensor *power_sensor_3_{nullptr};
   sensor::Sensor *power_sensor_4_{nullptr};
-  sensor::Sensor *power_sensor_3_{nullptr};
-  sensor::Sensor *power_sensor_4_{nullptr};
+  sensor::Sensor *energy_sensor_3_{nullptr};
+  sensor::Sensor *energy_sensor_4_{nullptr};
   sensor::Sensor *energy_sensor_sum2_{nullptr};
 
   // Divide by this to turn into Watt
